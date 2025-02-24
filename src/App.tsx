@@ -1,7 +1,8 @@
-import "./App.css";
+import "./styles/App.css";
+import WebStoreRouter from "./routers/WebStoreRouter";
 
 function App() {
-    return <></>;
+    return <WebStoreRouter />;
 }
 
 export default App;
