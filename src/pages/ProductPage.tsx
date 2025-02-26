@@ -11,10 +11,10 @@ const ProductPage = () => {
     const [product, setProduct] = useState<Product>();
 
     useEffect(() => {
-        getAllProducts();
+        loadProductPageData();
     }, [productId]);
 
-    async function getAllProducts() {
+    async function loadProductPageData() {
         const apiProducts = await getWebStoreProducts();
         const localStorageProducts = JSON.parse(
             localStorage.getItem("products") || "[]"
@@ -38,16 +38,12 @@ const ProductPage = () => {
         <>
             {products && (
                 <div className="product-page">
-                    {product ? (
-                        <ProductDetails product={product} />
-                    ) : (
-                        <p>Product not found.</p>
-                    )}
+                    <ProductDetails product={product} />
                     <h2>You may also like:</h2>
                     <ProductList
                         products={products}
                         searchValue=""
-                        categoryFilter=""
+                        categoryFilter={product ? product.category : ""}
                     />
                 </div>
             )}
