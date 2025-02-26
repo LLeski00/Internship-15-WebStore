@@ -1,3 +1,3 @@
-const categories = ["Clothing", "Jewelry"];
+const categories = ["Clothing", "Jewelry", "Electronics"];
 
 export { categories };

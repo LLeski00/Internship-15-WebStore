@@ -11,7 +11,10 @@ const WebStoreRouter = () => {
             <Routes>
                 <Route path="/" element={<MainLayout />}>
                     <Route index element={<ProductsPage />} />
-                    <Route path="products/:id" element={<ProductPage />} />
+                    <Route
+                        path="products/:productId"
+                        element={<ProductPage />}
+                    />
                     <Route
                         path="products/new"
                         element={<AddNewProductPage />}
