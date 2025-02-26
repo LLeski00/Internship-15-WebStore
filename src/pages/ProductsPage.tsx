@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getWebStoreProducts } from "../services/api";
+import { getAllProducts } from "../services/api";
 import { Product } from "../types/Product";
 import ProductList from "../components/ProductList/ProductList";
 import SearchBar from "../components/SearchBar/SearchBar";
@@ -11,15 +11,12 @@ const ProductsPage = () => {
     const [categoryFilter, setCategoryFilter] = useState<string>("");
 
     useEffect(() => {
-        getAllProducts();
+        loadProducts();
     }, []);
 
-    async function getAllProducts() {
-        const apiProducts = await getWebStoreProducts();
-        const localStorageProducts = JSON.parse(
-            localStorage.getItem("products") || "[]"
-        );
-        setProducts([...apiProducts, ...localStorageProducts]);
+    async function loadProducts() {
+        const allProducts = await getAllProducts();
+        setProducts(allProducts);
     }
 
     return (

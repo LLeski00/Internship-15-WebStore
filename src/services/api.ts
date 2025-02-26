@@ -20,4 +20,12 @@ async function getWebStoreProducts(): Promise<Product[]> {
     }
 }
 
-export { getWebStoreProducts };
+async function getAllProducts(): Promise<Product[]> {
+    const apiProducts = await getWebStoreProducts();
+    const localStorageProducts = JSON.parse(
+        localStorage.getItem("products") || "[]"
+    );
+    return [...apiProducts, ...localStorageProducts];
+}
+
+export { getAllProducts };
