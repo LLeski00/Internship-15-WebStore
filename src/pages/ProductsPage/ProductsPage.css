@@ -1,0 +1,7 @@
+.filters {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 90px 0;
+}

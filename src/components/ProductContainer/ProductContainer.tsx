@@ -10,9 +10,9 @@ const ProductContainer: React.FC<{ product: Product }> = ({ product }) => {
             className="product-container"
             onClick={() => navigate(`/products/${product.id}`)}
         >
-            <h1>{product.title}</h1>
-            <p>{product.price}</p>
             <img src={product.image || undefined} alt="product" />
+            <h2>{product.title}</h2>
+            <p>{product.price}€</p>
         </div>
     );
 };
