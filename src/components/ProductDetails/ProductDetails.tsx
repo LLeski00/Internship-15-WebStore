@@ -1,4 +1,5 @@
 import { Product } from "../../types/Product";
+import "./ProductDetails.css";
 
 const ProductDetails: React.FC<{ product: Product | undefined }> = ({
     product,
@@ -7,11 +8,13 @@ const ProductDetails: React.FC<{ product: Product | undefined }> = ({
         <>
             {product ? (
                 <div className="product-details">
-                    <h2>{product.title}</h2>
                     <img src={product.image} alt="product" />
-                    <p>{product.price}</p>
-                    <p>{product.description}</p>
-                    <p>{product.category}</p>
+                    <div className="product-content">
+                        <h2>{product.title}</h2>
+                        <p>{product.price}€</p>
+                        <p>{product.description}</p>
+                        <p>Category: {product.category}</p>
+                    </div>
                 </div>
             ) : (
                 <p>Product not found.</p>

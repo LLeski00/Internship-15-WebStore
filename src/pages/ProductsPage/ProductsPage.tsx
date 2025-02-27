@@ -21,7 +21,8 @@ const ProductsPage = () => {
     }
 
     return (
-        <>
+        <div className="products-page">
+            <h2 className="filters-header">Filters</h2>
             <div className="filters">
                 <SearchBar
                     searchValue={searchValue}
@@ -35,7 +36,7 @@ const ProductsPage = () => {
                 searchValue={searchValue}
                 categoryFilter={categoryFilter}
             />
-        </>
+        </div>
     );
 };
 

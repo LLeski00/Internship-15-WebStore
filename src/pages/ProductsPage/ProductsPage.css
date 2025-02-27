@@ -1,7 +1,32 @@
+.products-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.products-page > h1 {
+    width: 60%;
+    text-align: start;
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: bolder;
+}
+
+.products-page > h2 {
+    width: 60%;
+    text-align: start;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
 .filters {
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 50px;
-    padding: 90px 0;
+    padding: 0px 0 90px 0;
+}
+
+.filters-header {
+    margin-top: 50px;
 }

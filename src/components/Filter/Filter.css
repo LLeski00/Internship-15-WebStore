@@ -1,5 +1,7 @@
 .filter-bar {
     height: 60px;
     width: 600px;
+    border: 1px var(--dark-blue-color) solid;
     border-radius: 10px;
+    box-shadow: 3px 6px 3px 3px var(--gray-shadow-color);
 }

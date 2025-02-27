@@ -1,0 +1,27 @@
+.product-details {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.product-details > img {
+    height: 500px;
+    flex: 1;
+    object-fit: contain;
+}
+
+.product-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 50px;
+}
+
+.product-content h2 {
+    font-size: 30px;
+}
+
+.product-content p {
+    font-size: 20px;
+}

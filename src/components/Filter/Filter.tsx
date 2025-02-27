@@ -9,7 +9,7 @@ const Filter: React.FC<{ setCategoryFilter: Function }> = ({
             className="filter-bar"
             onChange={(e) => setCategoryFilter(e.target.value)}
         >
-            <option value="">Select category</option>
+            <option value="">Any category</option>
             {categories.map((category) => (
                 <option key={category} value={category}>
                     {category}
