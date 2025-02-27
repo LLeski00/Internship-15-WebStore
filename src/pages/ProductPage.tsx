@@ -20,7 +20,7 @@ const ProductPage = () => {
         const allProducts = await getAllProducts();
         const recommendedProducts = allProducts.reduce<Product[]>(
             (acc, _product) => {
-                if (_product.id === Number(productId)) setProduct(_product);
+                if (_product.id == productId) setProduct(_product);
                 else acc.push(_product);
                 return acc;
             },
