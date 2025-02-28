@@ -25,3 +25,8 @@
 .product-content p {
     font-size: 20px;
 }
+
+.product-description {
+    margin-top: 60px;
+    width: 80%;
+}

@@ -12,8 +12,13 @@ const ProductDetails: React.FC<{ product: Product | undefined }> = ({
                     <div className="product-content">
                         <h2>{product.title}</h2>
                         <p>{product.price}€</p>
-                        <p>{product.description}</p>
-                        <p>Category: {product.category}</p>
+                        <p>
+                            <strong>Category</strong>: {product.category}
+                        </p>
+                        <article className="product-description">
+                            <h3>Description:</h3>
+                            <p>{product.description}</p>
+                        </article>
                     </div>
                 </div>
             ) : (

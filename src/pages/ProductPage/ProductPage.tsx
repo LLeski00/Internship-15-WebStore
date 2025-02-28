@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getAllProducts } from "../../services/api";
 import ProductDetails from "../../components/ProductDetails/ProductDetails";
 import ProductList from "../../components/ProductList/ProductList";
+import "./ProductPage.css";
 
 const ProductPage = () => {
     const { productId } = useParams<{ productId: string }>();
@@ -30,17 +31,15 @@ const ProductPage = () => {
     }
 
     return (
-        <>
-            <div className="product-page">
-                <ProductDetails product={product} />
-                <h2>You may also like:</h2>
-                <ProductList
-                    products={recommendedProducts}
-                    searchValue=""
-                    categoryFilter={product ? product.category : ""}
-                />
-            </div>
-        </>
+        <div className="product-page">
+            <ProductDetails product={product} />
+            <h2>You may also like:</h2>
+            <ProductList
+                products={recommendedProducts}
+                searchValue=""
+                categoryFilter={product ? product.category : ""}
+            />
+        </div>
     );
 };
 
