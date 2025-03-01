@@ -7,6 +7,11 @@ export type Product = {
     image: string;
 };
 
+type Rating = {
+    count: number;
+    rate: number;
+};
+
 export type FetchedProduct = {
     id: number;
     title: string;
@@ -14,4 +19,5 @@ export type FetchedProduct = {
     category: string;
     description: string;
     image: string;
+    rating: Rating;
 };

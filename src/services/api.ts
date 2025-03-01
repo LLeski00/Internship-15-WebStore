@@ -23,6 +23,7 @@ async function getWebStoreProducts(): Promise<Product[]> {
                 image: product.image,
             };
         });
+        console.log(products);
         return products;
     } catch (error) {
         console.error((error as Error).message);
