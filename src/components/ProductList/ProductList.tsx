@@ -12,27 +12,38 @@ const ProductList: React.FC<{
     function filterProducts() {
         let filteredProducts = products;
 
-        if (searchValue)
-            filteredProducts = filteredProducts.filter((product) =>
-                product.title
-                    .toLocaleLowerCase()
-                    .includes(searchValue.toLocaleLowerCase())
-            );
-
         if (categoryFilter)
-            filteredProducts = filteredProducts.filter((product) =>
-                product.category
-                    .toLocaleLowerCase()
-                    .includes(categoryFilter.toLocaleLowerCase())
-            );
+            filteredProducts = filteredProducts.filter((product) => {
+                if (
+                    product.category.toLowerCase() ===
+                        categoryFilter.toLocaleLowerCase() &&
+                    product.title
+                        .toLowerCase()
+                        .includes(searchValue.toLowerCase())
+                )
+                    return true;
+            });
+        else
+            filteredProducts = filteredProducts.filter((product) => {
+                if (
+                    product.title
+                        .toLowerCase()
+                        .includes(searchValue.toLowerCase())
+                )
+                    return true;
+            });
 
         return filteredProducts;
     }
     return (
         <div className="product-list">
-            {filteredProducts.map((product) => (
-                <ProductContainer key={product.id} product={product} />
-            ))}
+            {filteredProducts.length !== 0 ? (
+                filteredProducts.map((product) => (
+                    <ProductContainer key={product.id} product={product} />
+                ))
+            ) : (
+                <p>No products found.</p>
+            )}
         </div>
     );
 };
