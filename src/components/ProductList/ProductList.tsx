@@ -10,27 +10,23 @@ const ProductList: React.FC<{
     const filteredProducts = filterProducts();
 
     function filterProducts() {
-        let filteredProducts = products;
+        let filteredProducts = [...products];
 
         if (categoryFilter)
             filteredProducts = filteredProducts.filter((product) => {
-                if (
+                return (
                     product.category.toLowerCase() ===
-                        categoryFilter.toLocaleLowerCase() &&
+                        categoryFilter.toLowerCase() &&
                     product.title
                         .toLowerCase()
                         .includes(searchValue.toLowerCase())
-                )
-                    return true;
+                );
             });
         else
             filteredProducts = filteredProducts.filter((product) => {
-                if (
-                    product.title
-                        .toLowerCase()
-                        .includes(searchValue.toLowerCase())
-                )
-                    return true;
+                return product.title
+                    .toLowerCase()
+                    .includes(searchValue.toLowerCase());
             });
 
         return filteredProducts;
