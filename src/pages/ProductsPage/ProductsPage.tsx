@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllProducts } from "../../services/api";
 import { Product } from "../../types/Product";
-import ProductList from "../../components/ProductList/ProductList";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import Filter from "../../components/Filter/Filter";
+import { ProductList, SearchBar, Filter } from "../../components";
 import "./ProductsPage.css";
 
 const ProductsPage = () => {

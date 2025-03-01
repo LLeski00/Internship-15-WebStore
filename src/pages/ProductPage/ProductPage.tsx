@@ -2,8 +2,7 @@ import { useParams } from "react-router-dom";
 import { Product } from "../../types/Product";
 import { useEffect, useState } from "react";
 import { getAllProducts } from "../../services/api";
-import ProductDetails from "../../components/ProductDetails/ProductDetails";
-import ProductList from "../../components/ProductList/ProductList";
+import { ProductDetails, ProductList } from "../../components";
 import "./ProductPage.css";
 
 const ProductPage = () => {

@@ -1,5 +1,5 @@
 import { Product } from "../../types/Product";
-import ProductContainer from "../ProductContainer/ProductContainer";
+import { ProductContainer } from "..";
 import "./ProductList.css";
 
 const ProductList: React.FC<{

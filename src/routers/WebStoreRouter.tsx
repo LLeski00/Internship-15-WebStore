@@ -1,9 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
-import ProductsPage from "../pages/ProductsPage/ProductsPage";
-import ProductPage from "../pages/ProductPage/ProductPage";
-import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import AddNewProductPage from "../pages/AddNewProductPage/AddNewProductPage";
+import {
+    AddNewProductPage,
+    ProductPage,
+    ProductsPage,
+    NotFoundPage,
+} from "../pages";
 
 const WebStoreRouter = () => {
     return (
