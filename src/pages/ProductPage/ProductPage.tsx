@@ -7,9 +7,7 @@ import "./ProductPage.css";
 
 const ProductPage = () => {
     const { productId } = useParams<{ productId: string }>();
-    const [recommendedProducts, setRecommendedProducts] = useState<Product[]>(
-        []
-    );
+    const [recommendedProducts, setRecommendedProducts] = useState<Product[]>();
     const [product, setProduct] = useState<Product>();
 
     useEffect(() => {
@@ -31,13 +29,17 @@ const ProductPage = () => {
 
     return (
         <div className="product-page">
-            <ProductDetails product={product} />
+            {product && <ProductDetails product={product} />}
             <h2>You may also like:</h2>
-            <ProductList
-                products={recommendedProducts}
-                searchValue=""
-                categoryFilter={product ? product.category : ""}
-            />
+            {recommendedProducts ? (
+                <ProductList
+                    products={recommendedProducts}
+                    searchValue=""
+                    categoryFilter={product ? product.category : ""}
+                />
+            ) : (
+                <p style={{ textAlign: "center" }}>Loading...</p>
+            )}
         </div>
     );
 };

@@ -5,7 +5,7 @@ import { ProductList, SearchBar, Filter } from "../../components";
 import "./ProductsPage.css";
 
 const ProductsPage = () => {
-    const [products, setProducts] = useState<Product[]>([]);
+    const [products, setProducts] = useState<Product[]>();
     const [searchValue, setSearchValue] = useState<string>("");
     const [categoryFilter, setCategoryFilter] = useState<string>("");
 
@@ -29,11 +29,15 @@ const ProductsPage = () => {
                 <Filter setCategoryFilter={setCategoryFilter} />
             </div>
             <h1>Products</h1>
-            <ProductList
-                products={products}
-                searchValue={searchValue}
-                categoryFilter={categoryFilter}
-            />
+            {products ? (
+                <ProductList
+                    products={products}
+                    searchValue={searchValue}
+                    categoryFilter={categoryFilter}
+                />
+            ) : (
+                <p style={{ textAlign: "center" }}>Loading...</p>
+            )}
         </div>
     );
 };
