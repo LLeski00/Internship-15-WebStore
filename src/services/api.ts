@@ -1,4 +1,4 @@
-import { Product } from "../types/Product";
+import { FetchedProduct, Product } from "../types/Product";
 
 const WEB_STORE_API_URL = "https://fakestoreapi.com/products";
 
@@ -12,8 +12,18 @@ async function getWebStoreProducts(): Promise<Product[]> {
             throw new Error(`Response status: ${response.status}`);
         }
 
-        const json = await response.json();
-        return json;
+        const fetchedProducts: FetchedProduct[] = await response.json();
+        const products: Product[] = fetchedProducts.map((product) => {
+            return {
+                id: product.id.toString(),
+                title: product.title,
+                price: product.price,
+                description: product.description,
+                category: product.category,
+                image: product.image,
+            };
+        });
+        return products;
     } catch (error) {
         console.error((error as Error).message);
         return [];
@@ -21,8 +31,8 @@ async function getWebStoreProducts(): Promise<Product[]> {
 }
 
 async function getAllProducts(): Promise<Product[]> {
-    const apiProducts = await getWebStoreProducts();
-    const localStorageProducts = JSON.parse(
+    const apiProducts: Product[] = await getWebStoreProducts();
+    const localStorageProducts: Product[] = JSON.parse(
         localStorage.getItem("products") || "[]"
     );
     return [...apiProducts, ...localStorageProducts];
