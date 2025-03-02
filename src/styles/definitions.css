@@ -9,6 +9,22 @@ html {
     background-color: var(--page-background-color);
 }
 
+main {
+    margin-inline: 100px;
+}
+
 button {
     cursor: pointer;
+}
+
+@media (max-width: 1300px) {
+    main {
+        margin-inline: 50px;
+    }
+}
+
+@media (max-width: 900px) {
+    main {
+        margin-inline: 20px;
+    }
 }

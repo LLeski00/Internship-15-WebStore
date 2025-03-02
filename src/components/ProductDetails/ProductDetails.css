@@ -2,6 +2,7 @@
     margin-top: 50px;
     display: flex;
     justify-content: center;
+    gap: 10%;
 }
 
 .product-details > img {
@@ -29,4 +30,15 @@
 .product-description {
     margin-top: 60px;
     width: 80%;
+}
+
+@media (max-width: 1300px) {
+    .product-details {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .product-details > img {
+        flex: none;
+    }
 }
