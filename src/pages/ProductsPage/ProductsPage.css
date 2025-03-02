@@ -24,9 +24,16 @@
     display: flex;
     justify-content: center;
     gap: 50px;
-    padding: 0px 0 90px 0;
+    padding-bottom: 90px;
 }
 
 .filters-header {
     margin-top: 50px;
+}
+
+@media (max-width: 900px) {
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
 }

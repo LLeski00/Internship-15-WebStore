@@ -45,26 +45,28 @@ const ProductForm = () => {
         (e: React.ChangeEvent<HTMLInputElement>) => {
             const file = e.target.files?.[0];
 
-            if (file) {
-                if (!file.type.startsWith("image/")) {
-                    console.error("The selected file is not an image.");
-                    return;
-                }
-
-                const reader = new FileReader();
-                reader.onload = () => {
-                    const imgSrc = reader.result as string;
-                    newProduct.current = {
-                        ...newProduct.current,
-                        image: imgSrc,
-                    };
-                };
-                reader.readAsDataURL(file);
-                setImageName(file.name);
-            }
+            if (file) tryReadImage(file);
         },
         []
     );
+
+    function tryReadImage(file: File) {
+        if (!file.type.startsWith("image/")) {
+            console.error("The selected file is not an image.");
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            const imgSrc = reader.result as string;
+            newProduct.current = {
+                ...newProduct.current,
+                image: imgSrc,
+            };
+        };
+        reader.readAsDataURL(file);
+        setImageName(file.name);
+    }
 
     return (
         <form className="product-form" onSubmit={handleFormSubmit}>

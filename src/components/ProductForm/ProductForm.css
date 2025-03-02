@@ -1,5 +1,5 @@
 .product-form {
-    margin: 24vh auto;
+    margin: 24vh auto 0 auto;
     padding: 50px;
     display: flex;
     flex-direction: column;
