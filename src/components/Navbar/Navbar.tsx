@@ -7,7 +7,7 @@ const NavBar = () => {
             <h1>WebStore</h1>
             <div className="navbar-links">
                 <Link to="/">Home</Link>
-                <Link to="products/new">Add new product</Link>
+                <Link to="products/new">Add</Link>
             </div>
         </nav>
     );
