@@ -28,23 +28,6 @@
     border-radius: 10px;
 }
 
-.product-form .input-file {
-    height: 40px;
-    width: 130px;
-    border-radius: 10px;
-    text-align: center;
-    align-self: flex-start;
-    display: flex;
-    background-color: var(--dark-blue-color);
-    justify-content: center;
-    cursor: pointer;
-    color: white;
-}
-
-.product-form input[type="file"] {
-    display: none;
-}
-
 .product-form button {
     height: 40px;
     width: 130px;

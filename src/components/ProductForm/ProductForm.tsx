@@ -112,6 +112,7 @@ const ProductForm = () => {
                 />
             </label>
             <ImageSelector
+                required
                 imageName={imageName}
                 handleImageChange={handleImageChange}
             />
