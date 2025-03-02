@@ -1,8 +1,9 @@
-import { useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import { categories } from "../../data/Categories";
 import "./ProductForm.css";
 import { Product } from "../../types/Product";
 import { v4 as newId } from "uuid";
+import { ImageSelector } from "..";
 
 const ProductForm = () => {
     const newProduct = useRef<Product>({
@@ -13,11 +14,11 @@ const ProductForm = () => {
         description: "",
         image: "",
     });
+    const [imageName, setImageName] = useState<string>("");
 
     function handleFormSubmit(e: React.FormEvent) {
         e.preventDefault();
         newProduct.current = { ...newProduct.current, id: newId() };
-        console.log(newProduct.current);
 
         const localStorageProducts: Product[] = JSON.parse(
             localStorage.getItem("products") || "[]"
@@ -40,29 +41,34 @@ const ProductForm = () => {
         };
     }
 
-    function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
-        const file = e.target.files?.[0];
+    const handleImageChange = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            const file = e.target.files?.[0];
 
-        if (file) {
-            if (!file.type.startsWith("image/")) {
-                console.error("The selected file is not an image.");
-                return;
-            }
+            if (file) {
+                if (!file.type.startsWith("image/")) {
+                    console.error("The selected file is not an image.");
+                    return;
+                }
 
-            const reader = new FileReader();
-            reader.onload = () => {
-                const imgSrc = reader.result as string;
-                newProduct.current = {
-                    ...newProduct.current,
-                    image: imgSrc,
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const imgSrc = reader.result as string;
+                    newProduct.current = {
+                        ...newProduct.current,
+                        image: imgSrc,
+                    };
                 };
-            };
-            reader.readAsDataURL(file);
-        }
-    }
+                reader.readAsDataURL(file);
+                setImageName(file.name);
+            }
+        },
+        []
+    );
 
     return (
         <form className="product-form" onSubmit={handleFormSubmit}>
+            <h1>Add new product</h1>
             <label>
                 Enter title:
                 <input
@@ -103,10 +109,10 @@ const ProductForm = () => {
                     required
                 />
             </label>
-            <label>
-                Choose an image:
-                <input type="file" onChange={handleImageChange} required />
-            </label>
+            <ImageSelector
+                imageName={imageName}
+                handleImageChange={handleImageChange}
+            />
             <button type="submit">Add product</button>
         </form>
     );

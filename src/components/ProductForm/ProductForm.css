@@ -1,5 +1,55 @@
 .product-form {
+    margin: 24vh auto;
+    padding: 50px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+    background-color: white;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 5px 5px var(--gray-shadow-color);
+}
+
+.product-form h1 {
+    margin: 10px 0;
+    align-self: center;
+}
+
+.product-form label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.product-form input,
+.product-form select {
+    height: 35px;
+    border: 1px var(--dark-blue-color) solid;
+    border-radius: 10px;
+}
+
+.product-form .input-file {
+    height: 40px;
+    width: 130px;
+    border-radius: 10px;
+    text-align: center;
+    align-self: flex-start;
+    display: flex;
+    background-color: var(--dark-blue-color);
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+}
+
+.product-form input[type="file"] {
+    display: none;
+}
+
+.product-form button {
+    height: 40px;
+    width: 130px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(238, 214, 0, 0.74);
+    align-self: center;
 }

@@ -5,3 +5,4 @@ export { default as ProductDetails } from "./ProductDetails/ProductDetails";
 export { default as ProductForm } from "./ProductForm/ProductForm";
 export { default as ProductList } from "./ProductList/ProductList";
 export { default as SearchBar } from "./SearchBar/SearchBar";
+export { default as ImageSelector } from "./ImageSelector/ImageSelector";
